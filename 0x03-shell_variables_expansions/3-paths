@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $PATHb | tr ':' '\n'| wc -1
