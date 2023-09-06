@@ -1,10 +1,2 @@
 #!/bin/bash
-<<<<<<< HEAD
-<<<<<<< HEAD
-find . -empty -printf "%f\n"
-=======
-find . -empty | ls -la
->>>>>>> 3a8d5a844d77a3977b52c4548a3fb755bb5d7794
-=======
-find . -empty -printf "%f\n"
->>>>>>> 6aa96f9b298d56632682805efb644a6045c29b07
+find -name '*.gif' -type -printf '%f\n' | LC_ALL=C sort -f | rev | cut -c 5i | rev
