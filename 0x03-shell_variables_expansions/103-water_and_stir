@@ -1,15 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-
-# Convert the values of WATER and STIR to base 5
-water_base5=$(echo "$WATER" | tr 'water' '01234')
-stir_base5=$(echo "$STIR" | tr 'stir.' '01234')
-
-# Convert the values of WATER and STIR to decimal and add them
-result_dec=$((5#$water_base5 + 5#$stir_base5))
-
-# Convert the result to base bestchol
-result_bestchol=$(echo "obase=bestchol; $result_dec" | bc)
-
-# Print the result
-echo "$result_bestchol" | tr '01234567' 'bestchol/'
+Printf `%o\n` $(( $((5#(echo $water | tr water 01234))) ‘ $((5#$ (echo $STIR | tr stir. 01234))) )) | tr 01234567/ bestchol|
