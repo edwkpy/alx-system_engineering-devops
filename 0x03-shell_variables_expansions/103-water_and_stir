@@ -1,6 +1,2 @@
 #!/bin/bash
-water_dec=$(echo "$WATER" | tr 'a-z' '1-9' | tr 'A-Z' '1-9' | tr -d '.')
-stir_dec=$(echo "$STIR" | tr 'a-z' '1-9' | tr 'A-Z' '1-9' | tr -d '.')
-result_dec=$((water_dec + stir_dec))
-result_bestchol=$(echo "obase=bestchol; $result_dec" | bc)
-echo "$result_bestchol"
+Printf “%0\n” $(( $((5#(echo $water | tr water 01234))) ‘ $((5#$ (echo $STIR | tr stir. 01234))) )) | tr 01234567/ bestchol |
