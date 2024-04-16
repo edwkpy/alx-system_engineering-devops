@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# script to configure broken container to work with nginx at port 8080
-# restart nginx as nginx user
-wget -O do_fix https://raw.githubusercontent.com/EdwinKipyegon/alx-system_engineering-devops/master/0x12-web_stack_debugging_2/100-backer
-chmod u+x do_fix
-./do_fix
+# script should run the whoami command under the user passed as an argument and make sure to try your script by passing different users
+pkill -f apache2
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
+sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+sudo -u nginx service nginx start
